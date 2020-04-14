@@ -13,13 +13,13 @@ git:
   depth: 3
 
 script:
-  - npm build
+  - npm run build
 
 deploy: 
   provider: pages # github pages
-  skip-cleanup: true
+  cleanup: true
   keep-history: true
-  github-token: $GITHUB_TOKEN
+  github-token: $GITHUB_TOKEN # Variable de entorno de travis ci - se debe generar en github en "developer settings" -> "personal access tokens" 
   local-dir: dist/ # ruta donde estan los archivos de produccion
   target-branch: gh-pages # esta es para github-pages. pero puede ser cualquier rama
   commit_message: "Deploy del proyecto" # Travis hace un commit en el target branch al hacer el deploy
