@@ -1,0 +1,29 @@
+language: node_js
+
+cache: 
+  directories:
+    - node_modules
+    - ~/.npm
+
+# Version del lenguaje
+node_js:
+  - '12'
+
+git:
+  depth: 3
+
+script:
+  - npm build
+
+deploy: 
+  provider: pages # github pages
+  skip-cleanup: true
+  keep-history: true
+  github-token: $GITHUB_TOKEN
+  local-dir: dist/ # ruta donde estan los archivos de produccion
+  target-branch: gh-pages # esta es para github-pages. pero puede ser cualquier rama
+  commit_message: "Deploy del proyecto" # Travis hace un commit en el target branch al hacer el deploy
+  on:
+    branch: master # Este script se ejecutara cuando hayan cambios en esta rama
+
+    
