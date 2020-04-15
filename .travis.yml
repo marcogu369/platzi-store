@@ -15,6 +15,13 @@ git:
 script:
   - npm run build
 
+notifications:
+  email:
+    recipients:
+      - marcogu00@gmail.com
+    on_success: always
+    on_failure: always
+
 deploy: 
   provider: pages # github pages
   skip_cleanup: true
